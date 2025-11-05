@@ -9,7 +9,7 @@
 * @date_modified 06/10/2025
 * @folio_mod FOL-001
 *
-* @authorized_by 
+* @authorized_by Gael Alejandro Rodea Marcelino
 * @tested_by 
 * @released_by 
 *
