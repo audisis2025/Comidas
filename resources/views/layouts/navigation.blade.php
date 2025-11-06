@@ -16,19 +16,32 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('menus.index')" :active="request()->routeIs('menus.index')">
-                        {{ __('Menús') }}
+                        {{ __('Establecimientos') }}
                     </x-nav-link>
                     
                     <x-nav-link :href="route('horarios.index')" :active="request()->routeIs('horarios.index')">
-                        {{ __('Horarios') }}
+                        {{ __('Verificación') }}
                     </x-nav-link>
                     
                     <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
                         {{ __('Promociones') }}
                     </x-nav-link>
                     
+                    <!-- CORREGIDO: Cada enlace con su propia ruta -->
                     <x-nav-link :href="route('planes.index')" :active="request()->routeIs('planes.index')">
-                        {{ __('Planes') }}
+                        {{ __('Suscripciones') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
+                        {{ __('Anuncios') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
+                        {{ __('Notificaciones') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('calificaciones.index')" :active="request()->routeIs('calificaciones.index')">
+                        {{ __('Calificaciones') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -84,6 +97,35 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            
+            <x-responsive-nav-link :href="route('menus.index')" :active="request()->routeIs('menus.index')">
+                {{ __('Establecimientos') }}
+            </x-responsive-nav-link>
+            
+            <x-responsive-nav-link :href="route('horarios.index')" :active="request()->routeIs('horarios.index')">
+                {{ __('Verificación') }}
+            </x-responsive-nav-link>
+            
+            <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
+                {{ __('Promociones') }}
+            </x-responsive-nav-link>
+            
+            <!-- CORREGIDO: Menú móvil también con rutas correctas -->
+            <x-responsive-nav-link :href="route('planes.index')" :active="request()->routeIs('planes.index')">
+                {{ __('Suscripciones') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
+                {{ __('Anuncios') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
+                {{ __('Notificaciones') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('calificaciones.index')" :active="request()->routeIs('calificaciones.index')">
+                {{ __('Calificaciones') }}
             </x-responsive-nav-link>
         </div>
 

@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index');  // 👈 ESTA LÍNEA ES CRÍTICA
+    return view('dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -16,9 +16,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    // Tus rutas del dashboard
     Route::get('/verificacion', function () {
-        return view('dashboard.verificacion');
+        $user = Auth::user();
+        
+        return view('dashboard.verificacion', [
+            'verificado' => $user->verificado ?? false,
+            'rfc' => $user->rfc ?? null,
+            'razonSocial' => $user->razon_social ?? null,
+            'direccionFiscal' => $user->direccion_fiscal ?? null,
+            'fechaVerificacion' => $user->fecha_verificacion ?? null
+        ]);
     })->name('verificacion.create');
     
     Route::get('/horarios', function () {
@@ -44,6 +51,26 @@ Route::middleware('auth')->group(function () {
     Route::get('/deactivate', function () {
         return view('dashboard.deactivate');
     })->name('deactivate');
+    
+    Route::get('/notificaciones', function () {
+        return view('dashboard.notificaciones');
+    })->name('notificaciones.index');
+    
+    Route::get('/calificaciones', function () {
+        return view('dashboard.calificaciones');
+    })->name('calificaciones.index');
+
+    Route::get('/completar-registro', function () {
+        return view('dashboard.completar-registro');
+    })->name('registro.completar');
+
+    Route::get('/menus/{establecimiento}', function ($establecimiento) {
+        return view('dashboard.menu-detalle', ['establecimiento' => $establecimiento]);
+    })->name('menus.detalle');
+
+    Route::get('/pagos/datos-bancarios', function () {
+        return view('pagos.datos-bancarios');
+    })->name('pagos.datos-bancarios');
 });
 
 require __DIR__.'/auth.php';
