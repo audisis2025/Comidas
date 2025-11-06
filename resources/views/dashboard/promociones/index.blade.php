@@ -7,9 +7,9 @@
     
     {{-- Botón de acción principal --}}
     <div class="mb-6">
-        <button class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 font-semibold">
+        <a href="{{ route('promociones.create') }}" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 font-semibold inline-block">
             + Nueva Promoción
-        </button>
+        </a>
     </div>
 
     {{-- Grid de promociones activas --}}
@@ -28,7 +28,7 @@
                 <p><strong>Vence:</strong> 30/12/2024</p>
             </div>
             <div class="mt-4 flex space-x-2">
-                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Editar</button>
+                <a href="{{ route('promociones.edit', 1) }}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Editar</a>
                 <button class="text-red-600 hover:text-red-800 text-sm font-medium">Desactivar</button>
             </div>
         </div>
@@ -46,7 +46,7 @@
                 <p><strong>Vence:</strong> 31/12/2024</p>
             </div>
             <div class="mt-4 flex space-x-2">
-                <button class="text-blue-600 hover:text-blue-800 text-sm font-medium">Editar</button>
+                <a href="{{ route('promociones.edit', 2) }}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Editar</a>
                 <button class="text-red-600 hover:text-red-800 text-sm font-medium">Desactivar</button>
             </div>
         </div>

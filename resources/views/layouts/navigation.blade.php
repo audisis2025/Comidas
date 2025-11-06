@@ -11,9 +11,9 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex items-center">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Inicio') }}
                     </x-nav-link>
                     <x-nav-link :href="route('menus.index')" :active="request()->routeIs('menus.index')">
                         {{ __('Establecimientos') }}
@@ -23,11 +23,38 @@
                         {{ __('Verificación') }}
                     </x-nav-link>
                     
-                    <x-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
-                        {{ __('Promociones') }}
-                    </x-nav-link>
+                    <!-- Submenú de Promociones -->
+                    <div class="relative" x-data="{ open: false }">
+                        <div class="flex items-center">
+                            <x-nav-link :href="route('promociones.index')" 
+                                      :active="request()->routeIs('promociones.*')"
+                                      class="flex items-center">
+                                {{ __('Promociones') }}
+                            </x-nav-link>
+                            <button @click="open = !open" 
+                                    class="ml-1 text-gray-500 hover:text-gray-700 focus:outline-none flex items-center">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Dropdown Menu -->
+                        <div x-show="open" 
+                             x-transition
+                             @click.away="open = false" 
+                             class="absolute left-0 top-12 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
+                            <x-dropdown-link :href="route('promociones.index')" 
+                                           @click="open = false">
+                                {{ __('Lista de Promociones') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('promociones.create')" 
+                                           @click="open = false">
+                                {{ __('Crear Promoción') }}
+                            </x-dropdown-link>
+                        </div>
+                    </div>
                     
-                    <!-- CORREGIDO: Cada enlace con su propia ruta -->
                     <x-nav-link :href="route('planes.index')" :active="request()->routeIs('planes.index')">
                         {{ __('Suscripciones') }}
                     </x-nav-link>
@@ -38,10 +65,6 @@
 
                     <x-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
                         {{ __('Notificaciones') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('calificaciones.index')" :active="request()->routeIs('calificaciones.index')">
-                        {{ __('Calificaciones') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -63,7 +86,16 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }}
+                        </x-dropdown-link>
+
+                        <!-- Enlaces modificados -->
+                        <x-dropdown-link :href="route('privacy')">
+                            {{ __('Política de Privacidad') }}
+                        </x-dropdown-link>
+                        
+                        <x-dropdown-link :href="route('terms')">
+                            {{ __('Términos y Condiciones') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -73,7 +105,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Cerrar sesión') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -96,7 +128,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Inicio') }}
             </x-responsive-nav-link>
             
             <x-responsive-nav-link :href="route('menus.index')" :active="request()->routeIs('menus.index')">
@@ -107,11 +139,16 @@
                 {{ __('Verificación') }}
             </x-responsive-nav-link>
             
-            <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
-                {{ __('Promociones') }}
-            </x-responsive-nav-link>
+            <!-- Submenú de Promociones para móvil -->
+            <div class="space-y-1 pl-4">
+                <x-responsive-nav-link :href="route('promociones.index')" :active="request()->routeIs('promociones.index')">
+                    {{ __('Promociones - Lista') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('promociones.create')" :active="request()->routeIs('promociones.create')">
+                    {{ __('Promociones - Crear') }}
+                </x-responsive-nav-link>
+            </div>
             
-            <!-- CORREGIDO: Menú móvil también con rutas correctas -->
             <x-responsive-nav-link :href="route('planes.index')" :active="request()->routeIs('planes.index')">
                 {{ __('Suscripciones') }}
             </x-responsive-nav-link>
@@ -122,10 +159,6 @@
 
             <x-responsive-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
                 {{ __('Notificaciones') }}
-            </x-responsive-nav-link>
-
-            <x-responsive-nav-link :href="route('calificaciones.index')" :active="request()->routeIs('calificaciones.index')">
-                {{ __('Calificaciones') }}
             </x-responsive-nav-link>
         </div>
 
@@ -138,7 +171,16 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Perfil') }}
+                </x-responsive-nav-link>
+
+                <!-- Enlaces modificados para móvil -->
+                <x-responsive-nav-link :href="route('privacy')">
+                    {{ __('Política de Privacidad') }}
+                </x-responsive-nav-link>
+                
+                <x-responsive-nav-link :href="route('terms')">
+                    {{ __('Términos y Condiciones') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -148,7 +190,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Cerrar sesión') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

@@ -37,8 +37,32 @@ Route::middleware('auth')->group(function () {
     })->name('menus.index');
     
     Route::get('/promociones', function () {
-        return view('dashboard.promociones');
+        return view('dashboard.promociones.index');
     })->name('promociones.index');
+    
+    Route::get('/promociones/create', function () {
+        return view('dashboard.promociones.create');
+    })->name('promociones.create');
+    
+    Route::post('/promociones', function () {
+        return redirect()->route('promociones.index');
+    })->name('promociones.store');
+    
+    Route::get('/promociones/{id}', function ($id) {
+        return view('dashboard.promociones.show', ['promocion' => ['id' => $id]]);
+    })->name('promociones.show');
+    
+    Route::get('/promociones/{id}/edit', function ($id) {
+        return view('dashboard.promociones.edit-prueba'); // Vista de prueba
+    })->name('promociones.edit');
+    
+    Route::put('/promociones/{id}', function ($id) {
+        return redirect()->route('promociones.index');
+    })->name('promociones.update');
+    
+    Route::delete('/promociones/{id}', function ($id) {
+        return redirect()->route('promociones.index');
+    })->name('promociones.destroy');
     
     Route::get('/banners', function () {
         return view('dashboard.banners');
@@ -71,6 +95,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/pagos/datos-bancarios', function () {
         return view('pagos.datos-bancarios');
     })->name('pagos.datos-bancarios');
+
+    Route::get('/promociones-prueba/{id}/edit', function ($id) {
+        return view('dashboard.promociones.edit-prueba');
+    })->name('promociones.edit.prueba');
 });
+
+Route::view('/privacy', 'privacy')->name('privacy');
+Route::view('/terms', 'terms')->name('terms');
 
 require __DIR__.'/auth.php';
