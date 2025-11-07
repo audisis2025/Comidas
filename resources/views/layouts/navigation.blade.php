@@ -21,37 +21,11 @@
                     
                    
                     
-                    <!-- Submenú de Promociones -->
-                    <div class="relative" x-data="{ open: false }">
-                        <div class="flex items-center">
-                            <x-nav-link :href="route('promociones.index')" 
-                                      :active="request()->routeIs('promociones.*')"
-                                      class="flex items-center">
-                                {{ __('Promociones') }}
-                            </x-nav-link>
-                            <button @click="open = !open" 
-                                    class="ml-1 text-gray-500 hover:text-gray-700 focus:outline-none flex items-center">
-                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Dropdown Menu -->
-                        <div x-show="open" 
-                             x-transition
-                             @click.away="open = false" 
-                             class="absolute left-0 top-12 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
-                            <x-dropdown-link :href="route('promociones.index')" 
-                                           @click="open = false">
-                                {{ __('Lista de Promociones') }}
-                            </x-dropdown-link>
-                            <x-dropdown-link :href="route('promociones.create')" 
-                                           @click="open = false">
-                                {{ __('Crear Promoción') }}
-                            </x-dropdown-link>
-                        </div>
-                    </div>
+                    <!-- Enlace simple de Promociones -->
+                    <x-nav-link :href="route('promociones.index')" 
+                            :active="request()->routeIs('promociones.*')">
+                        {{ __('Promociones') }}
+                    </x-nav-link>
                     
                     <x-nav-link :href="route('planes.index')" :active="request()->routeIs('planes.index')">
                         {{ __('Suscripciones') }}
