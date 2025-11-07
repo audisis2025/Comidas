@@ -19,9 +19,7 @@
                         {{ __('Establecimientos') }}
                     </x-nav-link>
                     
-                    <x-nav-link :href="route('horarios.index')" :active="request()->routeIs('horarios.index')">
-                        {{ __('Verificación') }}
-                    </x-nav-link>
+                   
                     
                     <!-- Submenú de Promociones -->
                     <div class="relative" x-data="{ open: false }">
@@ -57,10 +55,6 @@
                     
                     <x-nav-link :href="route('planes.index')" :active="request()->routeIs('planes.index')">
                         {{ __('Suscripciones') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
-                        {{ __('Anuncios') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
@@ -135,9 +129,7 @@
                 {{ __('Establecimientos') }}
             </x-responsive-nav-link>
             
-            <x-responsive-nav-link :href="route('horarios.index')" :active="request()->routeIs('horarios.index')">
-                {{ __('Verificación') }}
-            </x-responsive-nav-link>
+            
             
             <!-- Submenú de Promociones para móvil -->
             <div class="space-y-1 pl-4">
@@ -153,9 +145,6 @@
                 {{ __('Suscripciones') }}
             </x-responsive-nav-link>
 
-            <x-responsive-nav-link :href="route('banners.index')" :active="request()->routeIs('banners.index')">
-                {{ __('Anuncios') }}
-            </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('notificaciones.index')" :active="request()->routeIs('notificaciones.index')">
                 {{ __('Notificaciones') }}
