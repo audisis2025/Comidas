@@ -5,29 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SBVC - Tu comida favorita a un click</title>
     
-    <!-- Cargar estilos de Tailwind -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <style>
-        /* Variables de colores personalizados */
         :root {
-            --color-primary: #241178;    /* Azul principal */
-            --color-secondary: #DC6601;  /* Naranja */
-            --color-accent: #EE0000;     /* Rojo */
-            --color-success: #4CAF50;    /* Verde claro */
-            --color-dark: #000000;       /* Negro */
-            --color-light: #FFFFFF;      /* Blanco */
-            --color-yellow: #272800;     /* Amarillo oscuro */
+            --color-primary: #241178;    
+            --color-secondary: #DC6601;  
+            --color-accent: #EE0000;     
+            --color-success: #4CAF50;    
+            --color-dark: #000000;       
+            --color-light: #FFFFFF;      
+            --color-yellow: #272800;     
         }
     </style>
 </head>
 
 <body class="bg-white font-sans">
-    <!-- Header/Navigation -->
+    
     <header class="bg-white shadow-sm border-b">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
+                
                 <div class="flex items-center">
                     <div class="flex items-center space-x-3">
                         <img 
@@ -39,7 +37,7 @@
                     </div>
                 </div>
 
-                <!-- Auth Buttons -->
+                
                 <div class="flex items-center space-x-4">
                     @auth
                         <a href="{{ url('/dashboard') }}" class="bg-[#241178] text-white px-4 py-2 rounded-lg hover:bg-[#1a0d5a] font-medium">
@@ -59,16 +57,13 @@
     </header>
 
     
-    <!-- Hero Section -->
 <section class="bg-gradient-to-r from-[#241178] to-[#3a29a1] text-white py-32 relative">
-    <!-- Fondo con imagen y transparencia -->
     <div class="absolute inset-0 bg-cover bg-center opacity-10" 
         style="background-image: url('{{ asset('images/fonda.jpg') }}');">
     </div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 gap-12 items-center">
-            <!-- Text Content -->
             <div class="text-center lg:text-left">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                    Eres dueño de un 
@@ -78,14 +73,12 @@
                     Descubre la mejor plataforma para promocionar tus platillos.
                 </p>
 
-                <!-- Botón Registrarme debajo del texto -->
                 <div class="flex justify-center lg:justify-start mb-8">
                     <a href="{{ route('register') }}" class="bg-[#DC6601] hover:bg-[#c45a01] text-white text-2xl font-bold px-12 py-6 rounded-lg inline-block transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
                         Registrarme
                     </a>
                 </div>
 
-                <!-- Quick Stats -->
                 <div class="flex flex-wrap gap-6 justify-center lg:justify-start">
                     <div class="flex items-center">
                         <div class="bg-[#4CAF50] rounded-full p-2 mr-3">
@@ -115,7 +108,6 @@
     </div>
 </section>
 
-    <!-- App Download Section -->
     <section class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
@@ -128,7 +120,6 @@
                     </p>
                 </div>
 
-                <!-- App Store Buttons - Uno al lado del otro -->
                 <div class="flex flex-row gap-4 justify-center items-center max-w-md mx-auto">
                     <a href="#" class="transition-transform duration-300 hover:scale-105 w-48">
                         <img 
@@ -149,7 +140,6 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
     <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -203,11 +193,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Logo and Description -->
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center space-x-3 mb-4">
                         <img 
@@ -236,7 +224,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Links -->
                 <div>
                     <h3 class="font-semibold mb-4">Enlaces Rápidos</h3>
                     <ul class="space-y-2">
@@ -247,7 +234,6 @@
                     </ul>
                 </div>
 
-                <!-- Contact -->
                 <div>
                     <h3 class="font-semibold mb-4">Contacto</h3>
                     <ul class="space-y-2 text-gray-400">

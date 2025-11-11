@@ -16,7 +16,6 @@
                     </h3>
 
                     <form class="space-y-6">
-                        <!-- Información básica del negocio -->
                         <div>
                             <label class="block text-sm font-medium text-[#000000]">Nombre del negocio *</label>
                             <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-[#241178] focus:ring-[#241178]" placeholder="Ej: Mi Restaurante" required>
@@ -60,7 +59,6 @@
                             </div>
                         </div>
 
-                        <!-- Información Fiscal -->
                         <div class="border-t pt-6">
                             <h4 class="text-md font-medium text-[#000000] mb-4">Información Fiscal</h4>
                             
@@ -88,7 +86,6 @@
                             </div>
                         </div>
 
-                        <!-- Dirección del establecimiento -->
                         <div class="border-t pt-6">
                             <h4 class="text-md font-medium text-[#000000] mb-4">Dirección del Establecimiento</h4>
                             
@@ -113,7 +110,6 @@
                             </div>
                         </div>
 
-                        <!-- Métodos de pago -->
                         <div class="border-t pt-6">
                             <h4 class="text-md font-medium text-[#000000] mb-4">Métodos de Pago Aceptados</h4>
                             
@@ -153,12 +149,10 @@
                             </div>
                         </div>
 
-                        <!-- Horarios -->
                         <div class="border-t pt-6">
                             <h4 class="text-md font-medium text-[#000000] mb-4">Horarios de Atención *</h4>
                             
                             <div class="space-y-4">
-                                <!-- Lunes a Viernes -->
                                 <div class="flex flex-col md:flex-row md:items-center justify-between p-3 bg-gray-50 rounded-lg">
                                     <span class="text-sm font-medium text-[#000000] mb-2 md:mb-0">Lunes a Viernes</span>
                                     <div class="flex items-center space-x-2">
@@ -168,7 +162,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Sábados -->
                                 <div class="flex flex-col md:flex-row md:items-center justify-between p-3 bg-gray-50 rounded-lg">
                                     <span class="text-sm font-medium text-[#000000] mb-2 md:mb-0">Sábados</span>
                                     <div class="flex items-center space-x-2">
@@ -178,7 +171,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Domingos -->
                                 <div class="flex flex-col md:flex-row md:items-center justify-between p-3 bg-gray-50 rounded-lg">
                                     <span class="text-sm font-medium text-[#000000] mb-2 md:mb-0">Domingos</span>
                                     <div class="flex items-center space-x-2">
@@ -188,7 +180,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Días Festivos -->
                                 <div class="flex flex-col md:flex-row md:items-center justify-between p-3 bg-gray-50 rounded-lg">
                                     <span class="text-sm font-medium text-[#000000] mb-2 md:mb-0">Días Festivos</span>
                                     <div class="flex items-center space-x-2">
@@ -207,14 +198,11 @@
                             </div>
                         </div>
 
-                        <!-- Botones de acción -->
                         <div class="flex justify-between items-center pt-6 border-t">
                             <div class="flex space-x-4">
-                                <!-- Botón Cancelar -->
                                 <a href="{{ route('dashboard') }}" class="px-6 py-3 bg-gray-300 text-[#000000] rounded-md hover:bg-gray-400 transition duration-200 font-medium">
                                     Cancelar
                                 </a>
-                                <!-- Botón Completar Registro -->
                                 <button type="submit" name="action" value="save" class="px-6 py-3 bg-[#DC6601] hover:bg-[#c45a01] text-[#FFFFFF] rounded-md transition duration-200 font-medium flex items-center">
                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>

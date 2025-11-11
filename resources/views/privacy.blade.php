@@ -81,8 +81,8 @@
     <main class="privacy-container">
         <div class="privacy-content">
             <div class="last-updated">
-    <strong class="text-[#FFFFFF]">Última actualización:</strong> <span class="text-[#FFFFFF]">{{ date('d/m/Y') }}</span>
-</div>
+                <strong class="text-[#FFFFFF]">Última actualización:</strong> <span class="text-[#FFFFFF]">{{ date('d/m/Y') }}</span>
+            </div>
 
             <div class="prose max-w-none">
                 <h2 class="section-title">1. Información que Recopilamos</h2>
