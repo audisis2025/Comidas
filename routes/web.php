@@ -84,9 +84,8 @@ Route::middleware('auth')->group(function () {
         return view('dashboard.calificaciones');
     })->name('calificaciones.index');
 
-    Route::get('/completar-registro', function () {
-        return view('dashboard.completar-registro');
-    })->name('registro.completar');
+    Route::get('/completar-registro', [App\Http\Controllers\ClienteController::class, 'create'])->name('registro.completar');
+    Route::post('/completar-registro', [App\Http\Controllers\ClienteController::class, 'store'])->name('clientes.store');
 
     Route::get('/menus/{establecimiento}', function ($establecimiento) {
         return view('dashboard.menu-detalle', ['establecimiento' => $establecimiento]);
